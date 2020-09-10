@@ -8,3 +8,6 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.1/b
 
 # AWS CLI
 RUN  dnf install -y unzip && curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip && unzip awscliv2.zip && /aws/install -b /usr/bin && rm -r /aws awscliv2.zip && dnf remove -y unzip && dnf clean all
+
+# Convenience script to assume AWS role from a service account
+COPY assume-role.sh /usr/bin/assume-role
